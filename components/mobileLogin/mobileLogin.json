@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-toast": "/iview_dist/toast/index",
+    "i-input": "/iview_dist/input/index",
+    "i-button": "/iview_dist/button/index",
+    "i-notice-bar": "/iview_dist/notice-bar/index"
+  }
+}

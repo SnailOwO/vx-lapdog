@@ -1,0 +1,16 @@
+<!-- email start -->
+<view class="login-box">
+  <view class="login-account">
+    <i-input value="{{ email }}" placeholder="请输入邮箱" i-class="login-box-inp" autofocus="true" />
+    <!-- <input placeholder="请输入邮箱" class="login-box-inp"></input> -->
+  </view>
+  <view class="login-code">
+    <i-input value="{{ pic_code }}" placeholder="请输入验证码" i-class="login-box-inp" />
+    <!-- <input placeholder="请输入验证码" class="login-box-inp"></input> -->
+    <image src="" alt="验证码" class="verfity-code"></image>
+  </view>
+</view>
+<!-- email end -->
+<view class="login-btn-box">
+  <i-button bind:click="login">登录</i-button>
+</view>

@@ -1,0 +1,13 @@
+.login-box-inp {
+  /* border-bottom: 1px solid #fff; */
+  background: none !important;
+}
+
+.login-code {
+  position: relative;
+}
+
+.login-btn-box {
+  margin-top:30px;
+  padding:0 60px;
+}

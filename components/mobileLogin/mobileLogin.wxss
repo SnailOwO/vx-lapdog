@@ -1,0 +1,50 @@
+.login-box-inp {
+  background: none !important;
+  border-bottom:1px solid #dddee1;
+}
+
+.verfity-code {
+  right: 0;
+  bottom: 9px;
+  width: 90px;
+  height: 40px;
+  position: absolute;
+}
+
+.login-code {
+  position: relative;
+}
+
+.msg-btn {
+  right: 0;
+  bottom: 5px;
+  z-index: 10;
+  height: 40px;
+  font-size: 14px;
+  line-height: 40px;
+  position: absolute;
+  display: inline-block;
+}
+
+.login-btn-box {
+  margin-top:30px;
+  padding:0 60px;
+}
+
+.wx-login {
+  font-size: 12px;
+  text-align: right;
+  position: relative;
+}
+
+.vx-login-btn {
+  top: 0;
+  right: 1px;
+  width:84px;
+  height:44px;
+  z-index: 2px;
+  font-size: 12px;
+  line-height:44px;
+  position: absolute;
+  display:inline-block;
+}

@@ -1,0 +1,52 @@
+/**app.wxss**/
+.container {
+  /* height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box; */
+  font-size: 30rpx;
+  color: #495060;
+} 
+
+page { 
+  background-color: #f8f8f9;
+}
+
+.title-col {
+  color: #1c2438;
+}
+
+.content-col {
+  color: #495060;
+}
+
+.sub-col {
+  color: #ed3f14;
+}
+
+.border-col {
+  color: #dddee1;
+}
+
+.divider {
+  color: #e9eaec;
+}
+
+.back-col {
+  color: #f8f8f9;
+}
+
+.dispear {
+  opacity: 0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}

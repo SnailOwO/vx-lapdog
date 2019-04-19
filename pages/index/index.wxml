@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view class="container">
+  <i-notice-bar icon="systemprompt" loop>
+    {{ login_index_notice }}
+  </i-notice-bar>
+  <view class="login-container">
+    <view class="logo-box">
+      <image src='/resources/login/login.gif' class="logo-img"></image>
+    </view>
+    <!-- <view class="login-box"> -->
+      <!-- <mobileLogin></mobileLogin> -->
+      <!-- mobile start -->
+      <!-- <view id="mobile-way" wx:if="{{ login_way == 'mobile' ? 'hidden=true' : '' }}">
+        <view class="login-account">
+          <i-input value="{{ mobile }}" placeholder="请输入手机号" i-class="login-box-inp" autofocus="true" />
+        </view>
+        <view class="login-code">
+          <i-input value="{{ code }}" placeholder="请输入验证码" i-class="login-box-inp" type="password" />
+          <button class="msg-btn">发送短信</button>
+        </view>
+      </view> -->
+      <!-- mobile start -->
+      <!-- email start -->
+      <!-- <view id="email-way" wx:else>
+        <view class="login-account">
+          <i-input value="{{ email }}" placeholder="请输入邮箱" i-class="login-box-inp" autofocus="true" />
+        </view>
+        <view class="login-code">
+          <i-input value="{{ pic_code }}" placeholder="请输入验证码" i-class="login-box-inp" />
+          <image src="" alt="验证码" class="verfity-code"></image>
+        </view>
+      </view> -->
+      <!-- email end -->
+      <mobileLogin wx:if="{{ login_way == 'mobile' }}"></mobileLogin>
+      <emailLogin wx:else></emailLogin>
+      <!-- <i-toast id="toast" /> -->
+    <!-- </view> -->
+  </view>
+</view>

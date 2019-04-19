@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundColor": "#2b85e4",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2b85e4",
+    "navigationBarTitleText": "LapDog",
+    "navigationBarTextStyle": "white"
+  }
+}
