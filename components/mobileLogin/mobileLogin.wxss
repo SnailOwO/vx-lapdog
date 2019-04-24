@@ -27,8 +27,8 @@
 }
 
 .login-btn-box {
-  margin-top:30px;
-  padding:0 60px;
+  margin-top: 50px;
+  padding: 0 60px;
 }
 
 .wx-login {

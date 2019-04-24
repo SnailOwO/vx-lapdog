@@ -1,51 +1,37 @@
-<!--index.wxml-->
-<!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view> -->
 <view class="container">
   <i-notice-bar icon="systemprompt" loop>
     {{ login_index_notice }}
   </i-notice-bar>
   <view class="login-container">
     <view class="logo-box">
-      <image src='/resources/login/login.gif' class="logo-img"></image>
+      <image src='/resources/login/login.jpg' class="logo-img"></image>
     </view>
-    <!-- <view class="login-box"> -->
-      <!-- <mobileLogin></mobileLogin> -->
-      <!-- mobile start -->
-      <!-- <view id="mobile-way" wx:if="{{ login_way == 'mobile' ? 'hidden=true' : '' }}">
-        <view class="login-account">
-          <i-input value="{{ mobile }}" placeholder="请输入手机号" i-class="login-box-inp" autofocus="true" />
-        </view>
-        <view class="login-code">
-          <i-input value="{{ code }}" placeholder="请输入验证码" i-class="login-box-inp" type="password" />
-          <button class="msg-btn">发送短信</button>
-        </view>
-      </view> -->
-      <!-- mobile start -->
-      <!-- email start -->
-      <!-- <view id="email-way" wx:else>
-        <view class="login-account">
-          <i-input value="{{ email }}" placeholder="请输入邮箱" i-class="login-box-inp" autofocus="true" />
-        </view>
-        <view class="login-code">
-          <i-input value="{{ pic_code }}" placeholder="请输入验证码" i-class="login-box-inp" />
-          <image src="" alt="验证码" class="verfity-code"></image>
-        </view>
-      </view> -->
-      <!-- email end -->
-      <mobileLogin wx:if="{{ login_way == 'mobile' }}"></mobileLogin>
-      <emailLogin wx:else></emailLogin>
-      <!-- <i-toast id="toast" /> -->
-    <!-- </view> -->
+    <!-- <mobileLogin wx:if="{{ login_way == 'mobile' }}" authMenu="{{ authMenu }}" bind:toggleMenu="toggleMenu"></mobileLogin>
+    <emailLogin wx:else></emailLogin> -->
+    <!-- <i-toast id="toast" /> -->
+    <view class="start-lap">
+      <i-button open-type="getUserInfo" bindgetuserinfo="getUserInfo">开舔</i-button>
+    </view>
   </view>
 </view>
+
+<!-- 遮罩 -->
+<!-- <view class="mask {{ !authMenu ? '' : 'mask-show' }}"></view> -->
+<!-- 自定义授权menu -->
+<!-- <view class="custom_menu" hidden="{{ !authMenu }}">
+  <view class="custom_menu_box">
+    <view class="custom_menu_title title-col">LapDog申请使用</view>
+    <view class="custom_menu_content">
+      <view class="custom_menu_first">您的手机号码</view>
+      <view class="custom_menu_second">
+        <text>{{ current_mobile }}</text>
+        <text>该手机号将会绑定您的微信号</text>
+      </view>
+      <view class="custom_menu_third">使用其他手机号码</view>
+    </view>
+    <view class="custom_menu_bottom">
+      <button class="custom_menu_btn" bind:tap="cancel">拒绝</button>
+      <button class="custom_menu_btn">允许</button>
+    </view>
+  </view>
+</view> -->

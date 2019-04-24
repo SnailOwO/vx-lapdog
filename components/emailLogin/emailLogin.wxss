@@ -1,6 +1,6 @@
 .login-box-inp {
-  /* border-bottom: 1px solid #fff; */
   background: none !important;
+  border-bottom:1px solid #dddee1;
 }
 
 .login-code {
@@ -8,6 +8,6 @@
 }
 
 .login-btn-box {
-  margin-top:30px;
+  margin-top:50px;
   padding:0 60px;
 }

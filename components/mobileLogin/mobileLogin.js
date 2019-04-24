@@ -1,11 +1,15 @@
 // const { $Toast } = require('../../iview_dist/base/index');
 const util = require('../../utils/util.js');
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    authMenu: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
@@ -14,7 +18,6 @@ Component({
   data: {
     mobile: '',   //手机号
     code: '',   // 验证码
-    //toast: $Toast
   },
 
   /**
@@ -67,6 +70,13 @@ Component({
         console.log('请输入您的验证码');
         return false;
       }
-    }
+    },
+    change() {
+      this.triggerEvent('toggleMenu', { authMenu: !this.properties.authMenu });
+      console.log(this.properties.authMenu);
+    },
+    // getPhoneNumber(e) {   //个人公众号没有权限
+    //   console.log(e);
+    // }
   }
 })
