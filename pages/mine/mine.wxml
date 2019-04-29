@@ -1,0 +1,31 @@
+<!--pages/mine/mine.wxml-->
+<!-- <text>pages/mine/mine.wxml</text> -->
+<view class="container">
+  <view class="head">
+    <view>
+      <image src='{{ avatar }}' alt="头像获取失败"></image>
+    </view>
+    <view>{{ nickName }}</view>
+  </view>
+  <view class="operate-column">
+    <view>
+      <navigator url="/pages/task/task">每日任务</navigator>
+      <i-icon type="enter" />
+    </view>
+    <view>
+      <text>截图相册</text>
+      <i-icon type="enter" />
+    </view>
+    <view>
+      <navigator url="/pages/word/word">上传舔狗语录</navigator>
+      <i-icon type="enter" />
+    </view>
+    <view>
+      <navigator url="/pages/options/options">意见反馈</navigator>
+      <i-icon type="enter" />
+    </view>
+  </view>
+  <view class="logout">
+    <i-button>退出登录</i-button>
+  </view>
+</view>

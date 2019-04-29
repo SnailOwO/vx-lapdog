@@ -1,6 +1,7 @@
 const vx = require('/utils/vx.js');
 App({
   onLaunch: function() {
+    console.log('app');
     vx.vxLogin();
     // vx.auth();
     wx.getSetting({

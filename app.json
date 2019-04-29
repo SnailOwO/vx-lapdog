@@ -2,7 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mine/mine",
+    "pages/chat/chat",
+    "pages/task/task",
+    "pages/screen/screen",
+    "pages/word/word",
+    "pages/options/options"
   ],
   "window": {
     "backgroundColor": "#2b85e4",
@@ -10,5 +16,28 @@
     "navigationBarBackgroundColor": "#2b85e4",
     "navigationBarTitleText": "LapDog",
     "navigationBarTextStyle": "white"
-  }
+  },
+  "tabBar": {
+    "color": "#495060",
+    "selectedColor": "#1c2438",
+    "list": [
+      {
+        "iconPath": "resources/tab/chat.png",
+        "selectedIconPath": "resources/tab/chat-selected.png",
+        "pagePath": "pages/chat/chat",
+        "text": "舔庭"
+      },
+      {
+        "iconPath": "resources/tab/home.png",
+        "selectedIconPath": "resources/tab/home-selected.png",
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }

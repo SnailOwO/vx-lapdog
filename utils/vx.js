@@ -10,6 +10,12 @@ var vxLogin = function vxLogin() {
   })
 }
 
+var setNavBarText = function(txt) {
+  wx.setNavigationBarTitle({
+    title: txt
+  })
+}
+
 // vx 授权认证
 // var auth = function auth() {
 //   wx.getSetting({
@@ -36,5 +42,6 @@ var vxLogin = function vxLogin() {
 
 module.exports = {
   // auth: auth,
-  vxLogin: vxLogin
+  vxLogin: vxLogin,
+  setNavBarText: setNavBarText
 };

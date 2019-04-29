@@ -1,0 +1,23 @@
+<!--pages/task/task.wxml-->
+<view class="cotainer">
+  <view class="task">
+    <i-cell-group>
+      <i-cell title="每日登录" value="(1/1)"></i-cell>
+    </i-cell-group>
+  </view>
+   <view class="task">
+    <i-cell-group>
+      <i-cell title="每日登录" value="(1/1)"></i-cell>
+    </i-cell-group>
+  </view>
+   <view class="task">
+    <i-cell-group>
+      <i-cell title="每日登录" value="(1/1)"></i-cell>
+    </i-cell-group>
+  </view> 
+  <view class="task">
+    <i-cell-group>
+      <i-cell title="每日登录" value="(1/1)"></i-cell>
+    </i-cell-group>
+  </view> 
+</view>

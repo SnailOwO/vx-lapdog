@@ -1,6 +1,4 @@
-// const {
-//   $Toast
-// } = require('../iview_dist/base/index');
+const app = getApp();
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -51,8 +49,14 @@ const validatePhone = phone => {
 //   }
 // }
 
+// 是否登录
+const isLogin = function() {
+  return app.globalData.userInfo ? true : false;
+}
+
 module.exports = {
   // mLogin: mLogin,
+  isLogin: isLogin,
   formatTime: formatTime,
   validatePhone: validatePhone
 }

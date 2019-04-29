@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-icon": "/iview_dist/icon/index",
+    "i-toast": "/iview_dist/toast/index"
+  }
+}

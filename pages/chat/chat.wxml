@@ -1,0 +1,51 @@
+<!--pages/chat/chat.wxml-->
+<view class="container chat-custom-container">
+  <view class="chat-box">
+    <view class="time-block">
+      <text>{{ current_time }}</text>
+    </view>
+    <view class="chat-content">
+      <view>
+        <view class="head">
+          <view>
+            <image src='/resources/common/lap-head.jpeg'></image>
+          </view>
+          <view class="bupple-left">
+            <text>点击头像可以替换我的头像~</text>
+          </view>
+        </view>
+        <view>
+          <i-input value="" placeholder="此处输入舔狗名称" i-class="name-bc" maxlength='20' />
+        </view>
+      </view>
+
+      <view>
+        <view class="end">
+          <view class="bupple-right">
+            <text>点击头像可以替换我的头像~</text>
+          </view>
+          <view>
+            <image src='/resources/common/laped-head.jpg'></image>
+          </view>
+        </view>
+        <view>
+          <i-input value="" placeholder="此处输入被舔名称" right="true" i-class="name-bc" maxlength='20' />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="chat-tools">
+    <view class="icon-emoji">
+      <image src="/resources/common/keyboard.png"></image>
+    </view>
+    <view class="start-btn">
+      <button class="btn-start-chat">设置完毕</button>
+    </view>
+    <view class="icon-emoji">
+      <image src="/resources/common/emoji.png"></image>
+    </view>
+    <view class="icon-emoji">
+      <image src="/resources/common/emoji.png"></image>
+    </view>
+  </view>
+</view>

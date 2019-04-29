@@ -3,59 +3,34 @@
 const app = getApp()
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    authMenu: false,
-    current_mobile: '15366196173'
+   
   },
   onLoad: function() {
-    // 获取用户的信息
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+    console.log('index');
+  },
+  onReady:function() {
+    console.log('ready');
+    this.customRouter();
+  },
+  customRouter() {
+    //todo: 路由需要自定义封装 
+    if (!app.globalData.userInfo) {
+      wx.redirectTo({
+        url: '/pages/login/login'
       })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
+      wx.switchTab({
+        url: '/pages/mine/mine'
       })
     }
-    // notice bar
-    this.setData({
-      login_index_notice: app.globalData.login_index_notice,
-      // login_way: app.globalData.login_way
-    })
   },
-  getUserInfo: function(e) {
-    // console.log(e.detail.errMsg)
-    console.log(e.detail.userInfo)
-    // console.log(e.detail.rawData)
+  onShow: function() {
+    console.log('show');
+  },
+  onHide: function() {
+    console.log('hide');
+  },
+  onUnload: function() {
+    console.log('unload');
   }
-  // toggleMenu(e) {
-  //   this.setData({
-  //     authMenu: e.detail.authMenu
-  //   })
-  //   // 获取本地手机号码
-  // },
-  // cancel() {
-  //   this.setData({
-  //     authMenu: !this.data.authMenu
-  //   })
-  // }
 })

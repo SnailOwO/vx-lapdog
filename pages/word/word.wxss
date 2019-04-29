@@ -1,0 +1,17 @@
+/* pages/word/word.wxss */
+.word-content {
+  width: 85%;
+  height: 35px;
+  border-bottom:1px solid #dddee1;
+}
+
+.word-list {
+  margin-top:20px;
+  position: relative;
+}
+
+.icon-word {
+  top:6px;
+  right:15px;
+  position:absolute;
+}

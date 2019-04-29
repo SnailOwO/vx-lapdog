@@ -1,0 +1,10 @@
+<!--pages/word/word.wxml-->
+<view class="container">
+  <text>({{ current }} / 10)</text>
+  <view class="word-list" wx:for="{{ wordAry }}">
+    <input placeholder='请输入您希望添加的舔狗语录' class="word-content"></input>
+    <i-icon type="add" class="icon-word" size='20' bindtap='add' wx:if="{{ item == 1 }}" />
+    <i-icon type="close" class="icon-word" size='20' bindtap='cancel' data-num="{{ item }}" wx:else />
+  </view>
+</view>
+<i-toast id="toast" />

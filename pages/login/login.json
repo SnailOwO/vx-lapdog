@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-input": "/iview_dist/input/index",
+    "i-button": "/iview_dist/button/index",
+    "i-notice-bar": "/iview_dist/notice-bar/index",
+    "emailLogin": "/components/emailLogin/emailLogin",
+    "mobileLogin": "/components/mobileLogin/mobileLogin"
+  }
 }

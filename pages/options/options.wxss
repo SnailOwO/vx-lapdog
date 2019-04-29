@@ -1,0 +1,9 @@
+/* pages/options/options.wxss */
+label  {
+  display: block;
+}
+
+.options-box {
+  margin-top: 20px;
+  border:1px solid #dddee1
+}

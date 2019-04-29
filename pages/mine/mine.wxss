@@ -1,0 +1,38 @@
+/* pages/mine/mine.wxss */
+
+.head {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.head image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/* .head viwe:first-child {
+
+} */
+
+.operate-column {
+  height:35%;
+  display:flex;
+  flex-direction:column;
+  padding:20px 20px 35px 20px;
+}
+
+.operate-column view {
+  flex-grow:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #dddee1;
+}
+
+.logout button {
+  /* width:60%; */
+}

@@ -1,0 +1,9 @@
+<!--pages/options/options.wxml-->
+<view class='container'>
+  <label>前言：</label>
+  <label>个人练手好玩的小程序</label>
+  <label>想法来自微博@机智的何先生~~~</label>
+  <label>所以有什么有趣的想法或建议可以提供给我,谢谢!</label>
+  <label>或关注我的微博@蜗弟、,谢谢!</label>
+  <textarea class="options-box"></textarea>
+</view>
