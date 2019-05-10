@@ -24,7 +24,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // let token  = {
+    //   'access_token': '233'
+    // };
+    // // let token = '';
+    // wx.setStorageSync('token',token);
   },
 
   /**

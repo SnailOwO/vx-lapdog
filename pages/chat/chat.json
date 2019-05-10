@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "i-input": "/iview_dist/input/index"
+    "i-input": "/iview_dist/input/index",
+    "i-toast": "/iview_dist/toast/index"
   }
 }

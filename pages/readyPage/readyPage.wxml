@@ -1,4 +1,4 @@
-<!--pages/chat/chat.wxml-->
+<!--pages/readyPage/readyPage.wxml-->
 <view class="container chat-custom-container">
   <view class="chat-box">
     <view class="time-block">
@@ -11,27 +11,22 @@
             <image src='{{ lapHead }}'></image>
           </view>
           <view class="bupple-left">
-            <text>点击头像可以替换我的头像~</text>
+            <text>在吗,爸爸~~</text>
           </view>
-        </view>
-        <view>
-          <i-input value="{{ lapName }}" placeholder="此处输入舔狗名称" i-class="name-bc" maxlength='20' bind:change="changLapName" />
         </view>
       </view>
 
       <view>
         <view class="end">
           <view class="bupple-right">
-            <text>点击头像可以替换我的头像~</text>
+            <text>？？？</text>
           </view>
           <view bindtap='chooseLapedHead'>
             <image src='{{ lapedHead }}'></image>
           </view>
         </view>
-        <view>
-          <i-input value="{{ lapedName }}" placeholder="此处输入被舔名称" right="true" i-class="name-bc" maxlength='20' bind:change="changLapedName" />
-        </view>
       </view>
+
     </view>
   </view>
   <view class="chat-tools">
@@ -39,7 +34,7 @@
       <image src="/resources/common/keyboard.png"></image>
     </view>
     <view class="start-btn">
-      <button class="btn-start-chat" bindtap='startLap'>设置完毕</button>
+      <i-input i-class="ready-msg"></i-input>
     </view>
     <view class="icon-emoji" bindtap='cue'>
       <image src="/resources/common/emoji.png"></image>

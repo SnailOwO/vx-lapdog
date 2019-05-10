@@ -8,14 +8,15 @@
     "pages/task/task",
     "pages/screen/screen",
     "pages/word/word",
-    "pages/options/options"
+    "pages/options/options",
+    "pages/readyPage/readyPage"
   ],
   "window": {
     "backgroundColor": "#2b85e4",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2b85e4",
     "navigationBarTitleText": "LapDog",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#495060",

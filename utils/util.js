@@ -25,29 +25,15 @@ const validatePhone = phone => {
   }
 }
 
-// const mLogin = (phone, code) => {
-//   console.log('ccc');
-//   if (!phone) {
-//     $Toast({
-//       content: '请输入手机号',
-//       type: 'warning'
-//     });
-//     return false;
-//   }
-//   let isPhone = validatePhone(phone);
-//   if (!isPhone) {
-//     $Toast({
-//       content: '请输入合法的手机号',
-//       type: 'warning'
-//     });
-//     console.log('请输入合法的手机号');
-//     return false;
-//   }
-//   if (!code) {
-//     console.log('请输入您的验证码');
-//     return false;
-//   }
-// }
+const fillTime = function() {
+  let cur_date = new Date();
+  let cur_min = cur_date.getMinutes();
+  let cur_hour = cur_date.getHours();
+  if (cur_min < 10) {
+    cur_min = '0' + cur_min;
+  }
+  return cur_hour + ':' + cur_min;
+}
 
 // 是否登录
 const isLogin = function() {
@@ -55,8 +41,8 @@ const isLogin = function() {
 }
 
 module.exports = {
-  // mLogin: mLogin,
   isLogin: isLogin,
+  fillTime: fillTime,
   formatTime: formatTime,
   validatePhone: validatePhone
 }

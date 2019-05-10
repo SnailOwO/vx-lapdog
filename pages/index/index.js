@@ -9,7 +9,7 @@ Page({
     console.log('index');
   },
   onReady:function() {
-    console.log('ready');
+    console.log('ready1111111');
     this.customRouter();
   },
   customRouter() {

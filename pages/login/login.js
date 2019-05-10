@@ -7,7 +7,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     authMenu: false,
-    current_mobile: ''
+    current_mobile: '',
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
     // 获取用户的信息
@@ -51,6 +52,7 @@ Page({
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
+          console.log('ccc');
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true

@@ -1,47 +1,94 @@
-// vx login
-const app = getApp();
-// console.log(app);
-var vxLogin = function vxLogin() {
-  wx.login({
-    success: res => {
-      // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      console.log(res);
-    }
+const api = require('../utils/api.js');
+/**
+ *  单独封装微信API，以便使用promise 
+ */
+const login = () => {
+  return new Promise((resolve, reject) => {
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        resolve({
+          code: res.code
+        });
+        console.log('wxApi:login', res);
+      },
+      fail: err => {
+        reject(err);
+        console.log('wxApi:login', err);
+      }
+    })
   })
 }
 
-var setNavBarText = function(txt) {
+// wx api 获取授权
+const getSetting = () => {
+  return new Promise((resolve, reject) => {
+    wx.getSetting({
+      success: res => {
+        resolve(res);
+      },
+      fail: err => {
+        reject(err);
+      }
+    })
+  })
+}
+
+// wx api 获取用户信息
+const getUserInfo = () => {
+  return new Promise((resolve, reject) => {
+    wx.getUserInfo({
+      success: res => {
+        resolve(res);
+        console.log('wx getUserInfo',res);
+      },
+      fail: err => {
+        reject(err);
+        console.log('wx getUserInfo', err);
+      }
+    })
+  })
+}
+
+const setNavBarText = function(txt) {
   wx.setNavigationBarTitle({
     title: txt
   })
 }
 
-// vx 授权认证
-// var auth = function auth() {
-//   wx.getSetting({
-//     success: res => {
-//       console.log(2, res);
-//       if (res.authSetting['scope.userInfo']) {
-//         // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-//         wx.getUserInfo({
-//           success: res => {
-//             // 可以将 res 发送给后台解码出 unionId
-//             console.log(app);
-//             app.globalData.userInfo = res.userInfo
-//             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-//             // 所以此处加入 callback 以防止这种情况
-//             if (app.userInfoReadyCallback) {
-//               app.userInfoReadyCallback(res)
-//             }
-//           }
-//         })
-//       }
-//     }
+// 单独一张 todo:改为回调的形式，支持更改头像 ??
+const uploadImage = function() {
+  let tempFilePaths;
+  wx.chooseImage({
+    count: 1,
+    sizeType: ['original', 'compressed'],
+    sourceType: ['album', 'camera'],
+    success(res) {
+      console.log(res);
+      // tempFilePath可以作为img标签的src属性显示图片
+      tempFilePaths = res.tempFilePaths;
+      return tempFilePaths ? tempFilePaths : '';
+    }
+  })
+}
+/***********************************************************/
+
+// 自定义 wx api
+// const loginWithCode = () => {
+//   login().then((res) => {
+//     api.userLogin(res.code).then(data => {
+//       console.log('loginWithCode', data);
+//     }).catch(err => {
+//       console.log('loginWithCode', err);
+//     });
 //   })
 // }
 
 module.exports = {
-  // auth: auth,
-  vxLogin: vxLogin,
-  setNavBarText: setNavBarText
+  login: login,
+  getSetting: getSetting,
+  getUserInfo: getUserInfo,
+  // uploadImage: uploadImage,
+  setNavBarText: setNavBarText,
+  // loginWithCode: loginWithCode
 };
