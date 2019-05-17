@@ -1,4 +1,3 @@
-const app = getApp();
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -37,7 +36,8 @@ const fillTime = function() {
 
 // 是否登录
 const isLogin = function() {
-  return app.globalData.userInfo ? true : false;
+  // console.log(getApp().globalData.userInfo);
+  return getApp().globalData.userInfo ? true : false;
 }
 
 module.exports = {

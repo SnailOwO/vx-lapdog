@@ -1,8 +1,10 @@
 // pages/chat/chat.js
+const app = getApp();
 const vx = require('../../utils/vx.js');
 const {
   $Toast
 } = require('../../iview_dist/base/index');
+const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -10,6 +12,7 @@ Page({
    */
   data: {
     tapTimes: 0,
+    showMessageBox: false,
     current_time: '00:00',
     tapAry: [
       '这只是一个图标啦',
@@ -26,19 +29,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setTime();
     vx.setNavBarText('设置舔狗');
-    this.setData({
-      current_time: this.fillTime()
-    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    let token = wx.getStorageSync('token');
-    token.access_token = '23333';
-    console.log(token);
+
   },
 
   /**
@@ -81,15 +80,6 @@ Page({
    */
   onShareAppMessage: function() {
 
-  },
-  fillTime() {
-    let cur_date = new Date();
-    let cur_min = cur_date.getMinutes();
-    let cur_hour = cur_date.getHours();
-    if (cur_min < 10) {
-      cur_min = '0' + cur_min;
-    }
-    return cur_hour + ':' + cur_min;
   },
   cue() {
     // 随机点击图标，回答有序的话题
@@ -134,13 +124,57 @@ Page({
   startLap() {
     if (!this.data.lapName || !this.data.lapedName) {
       $Toast({
-        content: '搞咩啊，填名字了啊，靓仔!',
+        content: '搞咩啊，填名字啊，靓仔!',
         type: 'warning'
       });
       return false;
     }
-    wx.redirectTo({
-      url: '/pages/readyPage/readyPage?lapName=' + this.data.lapName + '&lapedName=' + this.data.lapedName,
+    // this.demo({
+    //   // time: 3000
+    // });
+
+    this.setWebSocket();
+    // 重新设置时间
+    this.setTime();
+    // 更改标题
+    // wx.setNavigationBarTitle({
+    //   title: this.data.lapName ? this.data.lapName : '莫得感情的舔狗'
+    // })
+    // wx.setNavigationBarColor({
+    //   frontColor: '#000000',
+    //   backgroundColor: '#f9f9f9',
+    //   animation: {
+    //     duration: 400,
+    //     timingFunc: 'easeIn'
+    //   }
+    // })
+    // wx.redirectTo({
+    //   url: '/pages/readyPage/readyPage?lapName=' + this.data.lapName + '&lapedName=' + this.data.lapedName,
+    // })
+  },
+  setWebSocket() {
+    // let token = app.globalData.token;
+    // let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImUyMzFiOTgyMTdlZjcwNjIwYTA0NGI0ZTlkYWZmYmMyZGE1NmU3ZTBjNTJiNTdiOGJlOTY0ZmY0ZDI5MjM5OWYzYjEzMjljZjA0MGExMzc5In0.eyJhdWQiOiIxIiwianRpIjoiZTIzMWI5ODIxN2VmNzA2MjBhMDQ0YjRlOWRhZmZiYzJkYTU2ZTdlMGM1MmI1N2I4YmU5NjRmZjRkMjkyMzk5ZjNiMTMyOWNmMDQwYTEzNzkiLCJpYXQiOjE1NTc4MTMyNjYsIm5iZiI6MTU1NzgxMzI2NiwiZXhwIjoxNTg5NDM1NjY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.IicTis0rGv1_aOj6us9x85Xf5Tv9c0P9Bbhcu7lbExkUGr9pB3gZaZItuJ01pnvPTeo6p0hlb2ZlSoE-veH9nMMlOgE3sm1yq5tz0vE7FQZwFfS-y6lOIPffSMi4oe4bXVCk4SP7ozIM_ubCo67Rw-GRudQWjovfwTvaLJsk4rc8s4Hpcb4lIthEZpctuA9DAViCedTsMowAiiLOgwqW5HPw_ZNI5nbSXwBYtSD69BYJja7pMwmFUn8tzXy8aNWzeQfMj2AKY2mh7p6UJonS0NlLfKvdlEjntEdNohO4Mv8qo2VdTCrFbXwrh14f_GsWucifHBevqq4o_mKoRno2X9HJfitXxVj7xpz49rLK0oxbYDGxZDJEeP497epeLXyn3__hH9N0lmKPRc47q2KJtgMMLPls7zM02VeMxLsrNPDsj5wE4TETIfOQhKGAiZhnJzFs4vADKZURkfS0k4-9tZVJGjd7CR94cbcmPXoCWhxD8LZyt5XaKl8wqQAhS5Z79e6GhA7mgKuA05X9LLe3kAiZ4UB4N8ZHL6WjuKnXIYF_WN5Ifn7A6I2tUWMCJG_cfsBcskSfBo68zkWovd-upEOtCcWoyxPv2i3g42yZFqNuP4fJhq4MUAfZ2KicBwE5UdkL75hwb_qktAfO7LmC_1-Q_0uctKs7Yn-NN2ptHko';
+    let token = app.globalData.token;
+    token = token ? token : '';
+    wx.connectSocket({
+      // url: 'wss://lapdog.lazyfarmer.top?token=' + token,
+      url: 'wss://lapdog.lazyfarmer.top/ws?token=' + token
+    })
+
+    wx.onSocketOpen(function(res) {
+      console.log('WebSocket连接已打开！')
+      wx.sendSocketMessage({
+        data: 'Hello,World:' + Math.round(Math.random() * 0xFFFFFF).toString(),
+      })
+    })
+
+    wx.onSocketMessage(function(res) {
+      console.log(res)
+    })
+
+    wx.onSocketClose(function(res) {
+      console.log('WebSocket连接已关闭！')
     })
   },
   changLapName(e) {
@@ -150,7 +184,6 @@ Page({
         lapName: e.detail.detail.value
       })
     }
-    // console.log(this.data.lapName);
   },
   changLapedName(e) {
     // console.log('laped', e);
@@ -159,6 +192,23 @@ Page({
         lapedName: e.detail.detail.value
       })
     }
-    // console.log(this.data.lapedName);
+  },
+  setTime() {
+    this.setData({
+      current_time: util.fillTime()
+    })
+  },
+  demo(param) {
+    console.log(param);
+    setTimeout(() => {
+      console.log(this.data.current_time);
+      console.log('12',param);
+      wx.redirectTo({
+        url: param.url || '/pages/readyPage/readyPage?lapName=' + this.data.lapName + '&lapedName=' + this.data.lapedName,
+      })
+    }, param.time || 150);
+    // setTimeout(function() {
+    //   console.log(this.data.current_time);
+    // },150);
   }
 })

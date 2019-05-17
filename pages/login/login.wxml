@@ -6,32 +6,9 @@
     <view class="logo-box">
       <image src='/resources/login/login.jpg' class="logo-img"></image>
     </view>
-    <!-- <mobileLogin wx:if="{{ login_way == 'mobile' }}" authMenu="{{ authMenu }}" bind:toggleMenu="toggleMenu"></mobileLogin>
-    <emailLogin wx:else></emailLogin> -->
-    <!-- <i-toast id="toast" /> -->
     <view class="start-lap">
       <i-button open-type="getUserInfo" bindgetuserinfo="getUserInfo">开舔</i-button>
     </view>
   </view>
 </view>
-
-<!-- 遮罩 -->
-<!-- <view class="mask {{ !authMenu ? '' : 'mask-show' }}"></view> -->
-<!-- 自定义授权menu -->
-<!-- <view class="custom_menu" hidden="{{ !authMenu }}">
-  <view class="custom_menu_box">
-    <view class="custom_menu_title title-col">LapDog申请使用</view>
-    <view class="custom_menu_content">
-      <view class="custom_menu_first">您的手机号码</view>
-      <view class="custom_menu_second">
-        <text>{{ current_mobile }}</text>
-        <text>该手机号将会绑定您的微信号</text>
-      </view>
-      <view class="custom_menu_third">使用其他手机号码</view>
-    </view>
-    <view class="custom_menu_bottom">
-      <button class="custom_menu_btn" bind:tap="cancel">拒绝</button>
-      <button class="custom_menu_btn">允许</button>
-    </view>
-  </view>
-</view> -->
+<i-toast id="toast" />
